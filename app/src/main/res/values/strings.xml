@@ -1,3 +1,51 @@
 <resources>
     <string name="app_name">ExitGame</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="login_with_google_account">Login with google account</string>
+    <string name="register">Register</string>
+    <string name="back">Back</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="email_address">Email Address</string>
+    <string name="dummy">dummy</string>
+
+
+    <string-array name="booking_item_names">
+        <item>Alice</item>
+        <item>Bank robbing</item>
+        <item>Chernobyl</item>
+        <item>Cyber attack</item>
+        <item>Iron throne</item>
+        <item>Labyrinth of the mind</item>
+        <item>Nuclear adventure</item>
+        <item>Pirate Bay</item>
+        <item>Saw</item>
+        <item>Submarine</item>
+        <item>The cathedral</item>
+        <item>The Cube</item>
+        <item>Titanic</item>
+        <item>Zombie</item>
+    </string-array>
+
+    <array name="booking_item_images">
+        <item>@drawable/alice</item>
+        <item>@drawable/bank_robbing</item>
+        <item>@drawable/chernobyl</item>
+        <item>@drawable/cyber_attack</item>
+        <item>@drawable/iron_throne</item>
+        <item>@drawable/labyrinth_of_the_mind</item>
+        <item>@drawable/nuclear_adventure</item>
+        <item>@drawable/pirate_bay</item>
+        <item>@drawable/saw</item>
+        <item>@drawable/submarine</item>
+        <item>@drawable/the_cathedral</item>
+        <item>@drawable/the_cube</item>
+        <item>@drawable/titanic</item>
+        <item>@drawable/zombie</item>
+
+    </array>
+
+
+
 </resources>

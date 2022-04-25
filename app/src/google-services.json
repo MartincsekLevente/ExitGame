@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "809210728848",
+    "project_id": "exitgame-c6663",
+    "storage_bucket": "exitgame-c6663.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:809210728848:android:18e997a0f4c0a5c9fb6315",
+        "android_client_info": {
+          "package_name": "com.example.exitgame"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "809210728848-3sumk2h38n5miomfe25et9k2ksi5o5sn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.exitgame",
+            "certificate_hash": "608bffbb3612cdb39f9c9e21bda34c2ca716734c"
+          }
+        },
+        {
+          "client_id": "809210728848-cp5vk2iqjrcg54e103gkmv7pqp26v52e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBXJv34RJAV5ldusRAJbpOx9QaRNYkPJbQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "809210728848-cp5vk2iqjrcg54e103gkmv7pqp26v52e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
