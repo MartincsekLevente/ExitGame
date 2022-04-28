@@ -3,7 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/MUNKA/ExitGame/app/src/main/res/drawable/custom_button.xml" value="0.3025" />
+        <entry key="..\:/MUNKA/ExitGame/app/src/main/res/drawable/custom_image_background.xml" value="0.3025" />
         <entry key="..\:/MUNKA/ExitGame/app/src/main/res/layout/activity_booking_list.xml" value="0.33" />
+        <entry key="..\:/MUNKA/ExitGame/app/src/main/res/layout/activity_in_item.xml" value="0.3875" />
         <entry key="..\:/MUNKA/ExitGame/app/src/main/res/layout/activity_main.xml" value="0.32653985507246375" />
         <entry key="..\:/MUNKA/ExitGame/app/src/main/res/layout/activity_register.xml" value="0.32653985507246375" />
         <entry key="..\:/MUNKA/ExitGame/app/src/main/res/layout/grid_item.xml" value="0.33" />

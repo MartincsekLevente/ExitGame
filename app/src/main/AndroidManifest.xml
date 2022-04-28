@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ExitGame">
         <activity
+            android:name=".InItemActivity"
+            android:exported="false" />
+        <activity
             android:name=".BookingListActivity"
             android:exported="false" />
         <activity

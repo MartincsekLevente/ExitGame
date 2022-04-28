@@ -51,6 +51,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/custom_button"
         app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
 
     <Button
@@ -64,6 +65,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/custom_button"
         app:layout_constraintTop_toBottomOf="@+id/buttonLogin"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
 

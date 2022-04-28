@@ -9,6 +9,8 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="email_address">Email Address</string>
     <string name="dummy">dummy</string>
+    <string name="booking">Booking</string>
+    <string name="view_more">View More</string>
 
 
     <string-array name="booking_item_names">
@@ -28,24 +30,22 @@
         <item>Zombie</item>
     </string-array>
 
-    <array name="booking_item_images">
-        <item>@drawable/alice</item>
-        <item>@drawable/bank_robbing</item>
-        <item>@drawable/chernobyl</item>
-        <item>@drawable/cyber_attack</item>
-        <item>@drawable/iron_throne</item>
-        <item>@drawable/labyrinth_of_the_mind</item>
-        <item>@drawable/nuclear_adventure</item>
-        <item>@drawable/pirate_bay</item>
-        <item>@drawable/saw</item>
-        <item>@drawable/submarine</item>
-        <item>@drawable/the_cathedral</item>
-        <item>@drawable/the_cube</item>
-        <item>@drawable/titanic</item>
-        <item>@drawable/zombie</item>
+    <string-array name="booking_item_prizes">
+        <item>9000Ft/Group</item>
+        <item>7600Ft/Group</item>
+        <item>4900Ft/Group</item>
+        <item>8700Ft/Group</item>
+        <item>6700Ft/Group</item>
+        <item>9700Ft/Group</item>
+        <item>9900Ft/Group</item>
+        <item>5900Ft/Group</item>
+        <item>5500Ft/Group</item>
+        <item>6500Ft/Group</item>
+        <item>7600Ft/Group</item>
+        <item>8700Ft/Group</item>
+        <item>8800Ft/Group</item>
+        <item>9600Ft/Group</item>
 
-    </array>
-
-
+    </string-array>
 
 </resources>
