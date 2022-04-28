@@ -11,6 +11,10 @@
     <string name="dummy">dummy</string>
     <string name="booking">Booking</string>
     <string name="view_more">View More</string>
+    <string name="search">Search</string>
+    <string name="cart">Cart</string>
+    <string name="log_out">Log out</string>
+    <string name="settings">Settings</string>
 
 
     <string-array name="booking_item_names">

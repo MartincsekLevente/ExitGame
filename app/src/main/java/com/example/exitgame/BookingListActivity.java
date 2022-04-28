@@ -1,7 +1,9 @@
 package com.example.exitgame;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.core.view.MenuItemCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -9,6 +11,12 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.os.Bundle;
 
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.SearchView;
+import android.widget.TextView;
 
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -40,6 +48,7 @@ public class BookingListActivity extends AppCompatActivity {
             R.drawable.zombie};
 
     String[] itemPrices;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,6 +73,28 @@ public class BookingListActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        super.onCreateOptionsMenu(menu);
+        getMenuInflater().inflate(R.menu.booking_list_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.log_out_button:
+                FirebaseAuth.getInstance().signOut();
+                finish();
+                return true;
+            case R.id.settings:
+                Log.d(LOG_TAG, "SETTINGS PRESSED");
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 
