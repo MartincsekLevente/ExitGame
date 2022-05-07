@@ -15,6 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHoler> {
@@ -25,6 +27,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHoler> {
     String[] itemNames;
     String[] itemPrices;
 
+    private FirebaseFirestore mFirestore;
+    private CollectionReference mItems;
 
     public MyAdapter(Context context, String[] itemNames, int[] itemImages, String[] itemPrices) {
         this.context = context;
@@ -36,6 +40,9 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHoler> {
     @NonNull
     @Override
     public MyViewHoler onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        mFirestore = FirebaseFirestore.getInstance();
+        mItems = mFirestore.collection("Items");
+
         inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.grid_item, parent, false);
         return new MyViewHoler(view);
