@@ -88,6 +88,7 @@
             <TextView
                 android:id="@+id/item_description"
                 style="@style/style_h2"
+                android:textColor="@color/black"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/constraint_layout"
