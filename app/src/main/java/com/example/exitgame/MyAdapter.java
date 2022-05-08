@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -31,6 +33,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHoler> {
     int size;
     private FirebaseFirestore mFirestore;
     private CollectionReference mItems;
+    int lastPosition = -100;
 
     public MyAdapter(Context context, String[] itemNames, int[] itemImages, String[] itemPrices, int size) {
         this.context = context;
@@ -73,6 +76,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHoler> {
                 context.startActivity(intent);
             }
         });
+        if(holder.getAdapterPosition() > lastPosition) {
+            Animation animation = AnimationUtils.loadAnimation(context, R.anim.slide_in);
+            holder.itemView.startAnimation(animation);
+            lastPosition = holder.getAdapterPosition();
+        }
+
 
     }
 

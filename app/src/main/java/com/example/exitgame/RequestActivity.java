@@ -3,6 +3,7 @@ package com.example.exitgame;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.CollectionReference;
@@ -24,6 +26,7 @@ public class RequestActivity extends AppCompatActivity {
 
     private FirebaseFirestore mFirestore;
     private CollectionReference mItems;
+    private NotificationHandler mHandler;
 
     EditText reqNameEditText;
     EditText reqPriceEditText;
@@ -37,6 +40,8 @@ public class RequestActivity extends AppCompatActivity {
 
         reqNameEditText = findViewById(R.id.req_name);
         reqPriceEditText = findViewById(R.id.req_price);
+
+        mHandler = new NotificationHandler(this);
 
         mFirestore = FirebaseFirestore.getInstance();
         mItems = mFirestore.collection("Items");
@@ -87,11 +92,18 @@ public class RequestActivity extends AppCompatActivity {
             return;
         }
 
+        mHandler.send("Your escape room is successfully requested! The name of the room is "+reqName);
         mItems.add(new itemsToFirestore(reqName,reqPrice,reqImg));
         Intent intent = new Intent(this, BookingListActivity.class);
         intent.putExtra("SECRET_KEY",69);
         intent.putExtra("order","asc");
         startActivity(intent);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Toast.makeText(this,"Returning to the list...", Toast.LENGTH_SHORT).show();
     }
 
 }
