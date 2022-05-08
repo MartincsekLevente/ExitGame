@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.Query;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -46,17 +47,21 @@ public class MainActivity extends AppCompatActivity {
     public void Login(View view) {
         String email = emailET.getText().toString();
         String password = passwordET.getText().toString();
-
-        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    startShopping();
-                }else{
-                    Toast.makeText(MainActivity.this,"User login fail: "+task.getException().getMessage(), Toast.LENGTH_LONG).show();
+        if (!email.equals("") && !password.equals("")) {
+            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        startBookingListActivity();
+                    }else{
+                        Toast.makeText(MainActivity.this,"User login fail: "+task.getException().getMessage(), Toast.LENGTH_LONG).show();
+                    }
                 }
-            }
-        });
+            });
+        }else {
+            Toast.makeText(this, "Please enter a valid email and password!", Toast.LENGTH_SHORT).show();
+        }
+
 
     }
 
@@ -79,9 +84,11 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
     }
 
-    public void startShopping() {
+    public void startBookingListActivity() {
         Intent intent = new Intent(this,BookingListActivity.class);
         intent.putExtra("SECRET_KEY",SECRET_KEY);
+        intent.putExtra("order","asc");
+        finish();
         startActivity(intent);
     }
 

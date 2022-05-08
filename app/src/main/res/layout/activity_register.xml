@@ -19,30 +19,17 @@
 
         />
 
-    <EditText
-        android:id="@+id/editTextRegUserName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="20dp"
-        android:layout_marginTop="50dp"
-        android:ems="10"
-        android:hint="@string/username"
-        android:inputType="textPersonName"
-        android:layout_below="@+id/textViewRegister"
-
-        />
 
     <EditText
         android:id="@+id/editTextRegEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewRegister"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="50dp"
         android:ems="10"
         android:hint="@string/email_address"
-        android:inputType="textEmailAddress"
-        android:layout_below="@+id/editTextRegUserName"
-        />
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/editTextRegPassword"

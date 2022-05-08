@@ -10,12 +10,18 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.io.InputStream;
 
@@ -25,11 +31,13 @@ public class InItemActivity extends AppCompatActivity {
     TextView itemName;
     TextView itemPrice;
     TextView itemDescription;
-    int itemDescriptionKey;
-    Button backButton;
 
+    boolean isTrashVisible= false;
     int itemImageVar;
     String itemNameVar, itemPriceVar;
+
+    private FirebaseFirestore mFirestore;
+    private CollectionReference mItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,7 +48,10 @@ public class InItemActivity extends AppCompatActivity {
         itemName = findViewById(R.id.item_name);
         itemPrice = findViewById(R.id.item_price);
         itemDescription = findViewById(R.id.item_description);
-        backButton = findViewById(R.id.back_button);
+
+        mFirestore = FirebaseFirestore.getInstance();
+        mItems = mFirestore.collection("Items");
+
         getExtras();
         setExtras();
     }
@@ -50,7 +61,7 @@ public class InItemActivity extends AppCompatActivity {
         itemImageVar = getIntent().getIntExtra("item_image", 0);
         itemNameVar = getIntent().getStringExtra("item_name");
         itemPriceVar = getIntent().getStringExtra("item_price");
-        itemDescriptionKey = getIntent().getIntExtra("item_description_key",0);
+
     }
 
     private void setExtras() {
@@ -60,51 +71,52 @@ public class InItemActivity extends AppCompatActivity {
         InputStream in_stream;
         try {
             Resources resources = getResources();
-            switch (itemDescriptionKey) {
-                case 0:
+            switch (itemNameVar) {
+                case "Alice":
                     in_stream = resources.openRawResource(R.raw.alice);
                     break;
-                case 1:
+                case "Bank robbing":
                     in_stream = resources.openRawResource(R.raw.bank_robbing);
                     break;
-                case 2:
+                case "Chernobyl":
                     in_stream = resources.openRawResource(R.raw.chernobyl);
                     break;
-                case 3:
+                case "Cyber attack":
                     in_stream = resources.openRawResource(R.raw.cyber_attack);
                     break;
-                case 4:
+                case "Iron throne":
                     in_stream = resources.openRawResource(R.raw.iron_throne);
                     break;
-                case 5:
+                case "Labyrinth of the mind":
                     in_stream = resources.openRawResource(R.raw.labyrinth_of_the_mind);
                     break;
-                case 6:
+                case "Nuclear adventure":
                     in_stream = resources.openRawResource(R.raw.nuclear_adventure);
                     break;
-                case 7:
+                case "Pirate Bay":
                     in_stream = resources.openRawResource(R.raw.pirate_bay);
                     break;
-                case 8:
+                case "Saw":
                     in_stream = resources.openRawResource(R.raw.saw);
                     break;
-                case 9:
+                case "Submarine":
                     in_stream = resources.openRawResource(R.raw.submarine);
                     break;
-                case 10:
+                case "The cathedral":
                     in_stream = resources.openRawResource(R.raw.the_cathedral);
                     break;
-                case 11:
+                case "The Cube":
                     in_stream = resources.openRawResource(R.raw.the_cube);
                     break;
-                case 12:
+                case "Titanic":
                     in_stream = resources.openRawResource(R.raw.titanic);
                     break;
-                case 13:
+                case "Zombie":
                     in_stream = resources.openRawResource(R.raw.zombie);
                     break;
                 default:
-                    in_stream = resources.openRawResource(R.raw.zombie);
+                    isTrashVisible = true;
+                    in_stream = resources.openRawResource(R.raw.default_request);
                     break;
             }
 
@@ -112,27 +124,40 @@ public class InItemActivity extends AppCompatActivity {
             in_stream.read(b);
             itemDescription.setText(new String(b));
         } catch (Exception e) {
-            itemDescription.setText("Error: can't show terms.");
+            itemDescription.setText("Error: can't show description!");
         }
+    }
+
+    public void deleteItem(){
+        DocumentReference ref =  mItems.document(itemNameVar);
+        ref.delete().addOnSuccessListener(success -> {
+            Toast.makeText(this, "Your requested escape room, named "+itemNameVar+ "  is successfully deleted.", Toast.LENGTH_LONG).show();
+        });
+
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
-        getMenuInflater().inflate(R.menu.booking_list_menu, menu);
+        getMenuInflater().inflate(R.menu.booking_in_item_menu, menu);
+        if (isTrashVisible) {
+           menu.getItem(0).setVisible(true);
+        }
+
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.delete_req_button:
+                deleteItem();
+                finish();
+                return true;
             case R.id.log_out_button:
                 FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
-                return true;
-            case R.id.settings:
-                Log.d(LOG_TAG, "SETTINGS PRESSED");
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -140,6 +165,9 @@ public class InItemActivity extends AppCompatActivity {
     }
 
     public void backToSearch(View view) {
+        Animation shake = AnimationUtils.loadAnimation(this, R.anim.shake);
+        view.startAnimation(shake);
+
         finish();
     }
 }

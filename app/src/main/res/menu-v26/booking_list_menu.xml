@@ -6,7 +6,7 @@
         android:title="OrderBy"
         android:icon="@drawable/orderby_arrow_down"
         app:showAsAction="ifRoom"
-
+        android:tooltipText="Order by"
         />
 
     <item

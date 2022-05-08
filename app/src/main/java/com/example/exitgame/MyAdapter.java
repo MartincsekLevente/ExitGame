@@ -18,6 +18,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
+
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHoler> {
     private static final String LOG_TAG = MyAdapter.class.getName();
@@ -26,15 +28,22 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHoler> {
     int[] itemImages;
     String[] itemNames;
     String[] itemPrices;
-
+    int size;
     private FirebaseFirestore mFirestore;
     private CollectionReference mItems;
 
-    public MyAdapter(Context context, String[] itemNames, int[] itemImages, String[] itemPrices) {
+    public MyAdapter(Context context, String[] itemNames, int[] itemImages, String[] itemPrices, int size) {
         this.context = context;
-        this.itemNames = itemNames;
-        this.itemImages = itemImages;
-        this.itemPrices = itemPrices;
+        this.size = size;
+        this.itemImages = new int[size];
+        this.itemNames = new String[size];
+        this.itemPrices = new String[size];
+
+        for (int i = 0; i < size; i++) {
+            this.itemImages[i]=itemImages[i];
+            this.itemPrices[i]=itemPrices[i];
+            this.itemNames[i]=itemNames[i];
+        }
     }
 
     @NonNull
@@ -61,7 +70,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHoler> {
                 intent.putExtra("item_name",itemNames[holder.getAdapterPosition()]);
                 intent.putExtra("item_price",itemPrices[holder.getAdapterPosition()]);
                 intent.putExtra("item_image",itemImages[holder.getAdapterPosition()]);
-                intent.putExtra("item_description_key",holder.getAdapterPosition());
                 context.startActivity(intent);
             }
         });

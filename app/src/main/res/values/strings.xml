@@ -15,6 +15,13 @@
     <string name="cart">Cart</string>
     <string name="log_out">Log out</string>
     <string name="settings">Settings</string>
+    <string name="orderby">orderBy</string>
+    <string name="request_a_new_escape_room">Request a new escape room</string>
+    <string name="escape_room_name">Escape room name</string>
+    <string name="suggested_price_group">Suggested price / group</string>
+    <string name="explain_your_idea_here">Explain your idea here...</string>
+    <string name="request">Request</string>
+
 
 
     <string-array name="booking_item_names">

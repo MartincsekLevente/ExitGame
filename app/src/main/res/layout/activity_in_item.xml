@@ -104,21 +104,6 @@
                 android:layout_below="@+id/item_description">
 
                 <Button
-                    android:id="@+id/booking_button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-
-
-                    android:background="@drawable/custom_button"
-                    android:paddingHorizontal="20dp"
-                    android:text="@string/booking"
-                    android:textSize="16sp"
-                    android:layout_margin="10dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <Button
                     android:id="@+id/back_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

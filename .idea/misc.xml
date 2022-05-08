@@ -4,14 +4,21 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/MUNKA/ExitGame/app/src/main/res/drawable-v24/circle.xml" value="0.2965" />
+        <entry key="..\:/MUNKA/ExitGame/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.3475" />
         <entry key="..\:/MUNKA/ExitGame/app/src/main/res/drawable/custom_button.xml" value="0.3025" />
         <entry key="..\:/MUNKA/ExitGame/app/src/main/res/drawable/custom_image_background.xml" value="0.3025" />
+        <entry key="..\:/MUNKA/ExitGame/app/src/main/res/drawable/ic_launcher_background.xml" value="0.3475" />
+        <entry key="..\:/MUNKA/ExitGame/app/src/main/res/drawable/request_icon.xml" value="0.3475" />
         <entry key="..\:/MUNKA/ExitGame/app/src/main/res/layout/activity_booking_list.xml" value="0.33" />
         <entry key="..\:/MUNKA/ExitGame/app/src/main/res/layout/activity_in_item.xml" value="0.3875" />
         <entry key="..\:/MUNKA/ExitGame/app/src/main/res/layout/activity_main.xml" value="0.32653985507246375" />
         <entry key="..\:/MUNKA/ExitGame/app/src/main/res/layout/activity_register.xml" value="0.32653985507246375" />
+        <entry key="..\:/MUNKA/ExitGame/app/src/main/res/layout/activity_request.xml" value="0.33" />
+        <entry key="..\:/MUNKA/ExitGame/app/src/main/res/layout/activity_traveling.xml" value="0.22083333333333333" />
         <entry key="..\:/MUNKA/ExitGame/app/src/main/res/layout/custom_menu_item.xml" value="0.3875" />
         <entry key="..\:/MUNKA/ExitGame/app/src/main/res/layout/grid_item.xml" value="0.33" />
+        <entry key="..\:/MUNKA/ExitGame/app/src/main/res/menu-v26/booking_list_menu.xml" value="0.3875" />
+        <entry key="..\:/MUNKA/ExitGame/app/src/main/res/menu/booking_in_item_menu.xml" value="0.3875" />
         <entry key="..\:/MUNKA/ExitGame/app/src/main/res/menu/booking_list_menu.xml" value="0.3875" />
       </map>
     </option>
